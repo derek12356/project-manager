@@ -5,7 +5,7 @@ angular.module('blogList').
 
 		// template:"<div class='' ><h1 class='new-class' >{{ title }}</h1><button ng-click='clickFunction()'>Click me</button></div>",
 		templateUrl : '/api/templates/blog-list.html',
-		controller: function(Post, $cookies, $routeParams, $scope,$rootScope, $location){
+		controller: function(Post, $cookies, $routeParams, $scope,$rootScope, $location,$timeout){
 		// var slug = $routeParams.slug
 
 		 	$scope.rate = 7;
@@ -56,7 +56,7 @@ angular.module('blogList').
           
 			$scope.deletePost = function(post){
 				Post.delete({"slug":post.slug + '/' + 'delete' })
-				window.location.reload()
+				$timeout(function(){window.location.reload()},300)
 			}
 
 		
