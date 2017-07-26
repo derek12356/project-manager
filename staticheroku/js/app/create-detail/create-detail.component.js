@@ -20,9 +20,10 @@ angular.module('createDetail').
 					$scope.loginError.title = ""
 				}else if($scope.data.content){
 					$scope.loginError.content = ""
-				}else if($scope.data.publish){
-					$scope.loginError.publish = ""
 				}
+				// else if($scope.data.publish){
+				// 	$scope.loginError.publish = ""
+				// }
 			})
 
 			// var tokenExists = $cookies.get("token")
@@ -48,9 +49,9 @@ angular.module('createDetail').
                 if (!data.content) {
                     $scope.loginError.content = ["This field may not be blank."]
                 }
-                if (!data.publish) {
-                    $scope.loginError.publish = ["This field may not be blank."]
-                }
+                // if (!data.publish) {
+                //     $scope.loginError.publish = ["This field may not be blank."]
+                // }
 
 				var reqConfig = {
 					method: "POST",
