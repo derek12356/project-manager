@@ -21,7 +21,7 @@
 
 	
 	
-	<script src='{% static "js/external/dirPagination.js" %}'></script>
+	
 
 	<script src='{% static "js/app/app.module.js" %}'></script>
 	<script src='{% static "js/app/app.config.js" %}'></script>
@@ -59,6 +59,22 @@
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<script>
+     $(document).on('click', 'div.clickable', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $this.addClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    } else {
+        $this.parents('.panel').find('.panel-body').slideUp();
+        $this.removeClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    }
+     });
+
+
+	</script>
 	<style>
 	.new-class{
 		font-size:80px;
