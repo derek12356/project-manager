@@ -1,0 +1,38 @@
+<div class='col-sm-6 col-sm-offset-3'>
+<form ng-submit='createPost(data)'>
+<h1>Create </h1>
+<hr/>
+
+<div  ng-class="{'has-error': loginError.title }">
+	<h3>Title </h3>
+	<input type='text' id='titleError' ng-model='data.title' class='form-control' placeholder='title'> 
+	<label class="control-label" for="titleError" ng-if='loginError.title'><span ng-repeat='error in loginError.title'>{{ error }}<br/></span></label>
+</div>
+
+
+<div  ng-class="{'has-error': loginError.content }">
+	<h3>Content </h3>
+	<textarea type='text' id='contentError' ng-model='data.content' class='form-control' placeholder='content'></textarea>
+	<label class="control-label" for="contentError" ng-if='loginError.content'><span ng-repeat='error in loginError.content'>{{ error }}<br/></span></label>
+</div>
+
+
+<div  ng-class="{'has-error': loginError.publish }">
+	<h3>Publish </h3>
+	<input id='publishError' ng-model='data.publish' class='form-control' placeholder="YYYY-MM-DD" >
+	<label class="control-label" for="publishError" ng-if='loginError.publish'><span ng-repeat='error in loginError.publish'>{{ error }}<br/></span></label> 
+</div>
+
+
+<h3>Image </h3><input type='file' ng-model='data.image' > 
+<br>
+<input type='submit' value='Post' class = 'btn btn-default'>
+</form>
+</div>
+
+
+<!-- <div class="form-group" ng-class="{'has-error': loginError.username }">
+                <input class='form-control' id='usernameError' placeholder='Username/Email' ng-model='user.username'></input>
+
+                <label class="control-label" for="usernameError" ng-if='loginError.username'><span ng-repeat='error in loginError.username'>{{ error }}<br/></span></label>        
+    </div> -->

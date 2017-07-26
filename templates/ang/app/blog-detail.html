@@ -1,0 +1,130 @@
+<div class='row'>
+	<div class='col-sm-6 col-sm-offset-3'>
+		<div class='page-header'>
+		<h1 style='color:#006bb3'>{{ post.title }}</h1>
+		<p>- {{ post.user.username}} {{post.publish}}</p> 
+		</div>
+<span ng-if='post.image'>
+<img ng-src='{{ post.image }}' class='img-responsive'> <hr/>
+</span>
+<p>{{ post.content }}</p>
+<hr>
+	
+	<div class='row'>
+	<div class='col-sm-4'>
+	<h4>Checklist</h4>
+	<br>
+	<form ng-submit='addItem()'>
+		<div class="form-group" ng-class="{'has-error': taskError.content }">
+			<textarea id='task1' class='form-control' placeholder='Add Item' ng-model='tasks.content'></textarea>
+
+			<label class="control-label" for="task1" ng-if='taskError.content'><span ng-repeat='error in taskError.content'>{{ error }}<br/></span></label>	
+			<!-- <input type='date' placeholder='YYYY-MM-DD' ng-model='tasks.content'> -->
+		</div>
+
+
+		<input class="btn btn-default btn-sm" type='submit' value='Add'/>
+    </form>
+    <br>
+    </div>
+    <div class='col-sm-4'>
+    <h5>Scheduled</h5> 
+    <div ng-repeat="task in tasks track by $index">  
+    	<div class='panel panel-default'>
+ 		<div class='panel-body'>
+ 			<input href='#' type='checkbox' ng-click='finish(task)'/> {{task}}<a href='#' ng-click='deleteItem(item)'> x</a>
+    	</div>
+    	</div>
+    </div>
+    </div>
+    
+
+    <div class='col-sm-4'>
+    <h5>Completed</h5>
+    <div ng-repeat = "task1 in tasks2 track by $index">
+    <div class='panel panel-default'>
+ 		<div class='panel-body'>
+			{{ task1 }} <a href='#' ng-click='deleteItem2(item)'> x</a>
+		</div>
+	</div>
+    </div>
+    </div>
+ <!--    <div class='col-sm-6' ng-if='tasks.content' >
+    	<p style='color:red;' >Preview:</p>
+        <p>{{ tasks.content }}</p>
+    </div>
+ -->    
+
+    </div>
+<hr/>
+<div class='row'>
+	<div class='col-sm-6'>
+	<h3>Comments</h3>
+	</div>
+<div class='col-sm-6'>
+	<input style='margin-top:18px;' class='form-control' type='text' ng-model='query' placeholder='search'/>
+</div>
+<div class='col-sm-12'>
+	<hr/>
+</div>
+<div class='row'>
+	<div class='col-sm-6'>
+		
+
+		<form ng-submit='addNewComment()'>
+			<div class="form-group" ng-class="{'has-error': commentError.content }">
+                <textarea class='form-control' id='contentText' placeholder='New comment' ng-model='newComment.content'></textarea>
+
+                <label class="control-label" for="contentText" ng-if='commentError.content'><span ng-repeat='error in commentError.content'>{{ error }}<br/></span></label>
+                  
+            </div>
+                 <input class='btn btn-default' type='submit' value='Add Comment'/>
+					
+		
+				<hr/>
+		</form>
+		</div>
+		<div class='col-sm-6' ng-if='newComment.content'> 
+		    <p style='color:red;' >Preview:</p>
+        	<p>{{ newComment.content }}</p>
+		</div>
+
+	</div>
+
+
+
+<ul>
+	<li ng-repeat='comment in comments | orderBy: commentOrder | filter : query'>	
+
+	   
+		{{ comment.content }}
+
+		<br/>
+		<small> <a href='#' ng-click="showReplies =! showReplies"><span ng-show='! showReplies'> view/reply </span><span ng-show='showReplies'>hide</span></a>:{{ comment.reply_count }} | via {{ comment.user.username }} <span ng-hide='comment.user.username != currentUser'> | </span> <a href='#' confirm-click='Are you sure to delete it?' confirmed-click='deleteComment(comment)' ><span ng-show='comment.user.username == currentUser'>delete</span></a></small>
+	
+		<br/>
+		<div class='col-sm-6' ng-show ='showReplies'>
+
+		<comment-thread comment='comment' slug='post.slug'></comment-thread>
+		
+		</div>
+
+		<br/>
+		<div class='clearfix'></div>
+	</li>
+</ul>
+
+
+
+ <!-- <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" ></span>
+    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+
+    <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+    <button type="button" class="btn btn-sm btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+    <hr /> -->
+
+	</div>
+</div>

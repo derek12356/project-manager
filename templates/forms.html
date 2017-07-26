@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+	<h1>{{ title }}</h1>
+
+	<form method='POST' action='' enctype= 'multipart/form-data' >{% csrf_token %}
+	{{ form|crispy }}
+	<a class="abc"><input type='submit' class="btn btn-primary" value ='{{ title }}'/></a>
+	</form>
+	{% block style %}
+	{% endblock %}
+<script   src="http://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+<!-- <script>
+$(document).ready(function(){
+
+    $(".abc").mouseenter(function(){
+        $("#panel").slideDown();
+    });
+    $(".abc").mouseleave(function(){
+        $("#panel").slideUp();
+    });
+});
+</script> -->
+<style>
+#panel{
+    padding: 5px;
+    text-align: center;
+    background-color: #4dd2ff;
+    padding: 15px;
+    display: none;
+}
+</style>
+<div id="panel">{{ login }}</div>
+
+{% endblock %}

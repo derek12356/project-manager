@@ -1,0 +1,25 @@
+[
+		{"title": "book1", "id":1, "description": "This is book 1","publishDate":"2016-10-20","image":"/img/AJ.jpg",
+			"comments": [
+				{"id":1, "text": "nice book"},
+				{"id":2, "text": "good one"},
+				{"id":3, "text": "interesting"}
+			]
+		},
+		{"title": "book2", "id":2, "description": "This is a book 2","publishDate":"2016-10-19",
+			"comments": [
+				{"id":1, "text": "nice book"},
+				{"id":2, "text": "good one"},
+				{"id":3, "text": "interesting"}
+			]},
+		{"title": "book2", "id":3, "description": "This is a book 3","publishDate":"2016-10-19"},
+		{"title": "book3", "id":3, "description": "This is a book 3","publishDate":"2016-10-18"},
+		{"title": "book2", "id":3, "description": "This is a book 3","publishDate":"2016-10-10"},
+		{"title": "book2", "id":3, "description": "This is a book 3","publishDate":"2016-10-12"},
+		{"title": "book3", "id":3, "description": "This is a book 3","publishDate":"2016-10-12"},
+		{"title": "book1", "id":3, "description": "This is a book 3","publishDate":"2016-10-12"},
+		{"title": "book3", "id":3, "description": "This is a book 3","publishDate":"2016-10-12"},
+		{"title": "book1", "id":3, "description": "This is a book 3","publishDate":"2016-10-12"}
+
+
+]

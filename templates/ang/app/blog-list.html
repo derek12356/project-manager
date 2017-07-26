@@ -1,0 +1,96 @@
+<!-- 
+
+<!-- <ul ng-if='items.length >0'>
+	<li ng-repeat='post in items'> -->
+		<!-- <a ng-href='#' ng-click='goToItem(post)'/>{{ post.title }}</a> -->
+		<!-- <a ng-href='/blog/{{ post.id }}'  confirmed-click='goToItem(post)'/>{{ post.title }}</a> -->
+		<!-- <confirm-Click message='Are you positive?' post='item'></confirm-Click> -->
+<!-- 	</li>
+</ul> -->
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1 style='color:#006bb3'>Project List</h1>
+<div class='row'>
+<div class='col-sm-6'>
+<input type='text' ng-model='query' class='form-control' placeholder='search'/>
+</div>
+
+
+<div class='col-sm-6'>
+<select ng-model='order' class='form-control' >
+	<option value='-publish'>Recent</option>
+	<option value='publish'>Older</option>
+	<option value='title'>A-Z</option>
+	<option value='-title'>Z-A</option>
+</select>
+</div>
+<div ng-show = 'query.length >0'><br><br></div>
+</div>
+	<dir-pagination-controls ng-hide='query.length>0' ></dir-pagination-controls>
+</div>
+<uib-accordion close-others="oneAtATime">
+<div class='col-sm-6 col-sm-offset-3' dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 8' >
+
+	<!-- <div class="thumbnail" > -->
+	     	 <!-- <a ng-href='/blog/{{ post.slug }}' ng-if='post.image'/><img class='img-responsive' ng-src="{{ post.image }}"  alt="..."></a> -->
+	      		<!-- <div class="caption"> -->
+	        	<!-- <h3><a  ng-href='/blog/{{ post.slug }}'/>{{ post.title }}</a></h3> -->
+	        		<!-- <p>{{ post.user.username }}</p>
+	        		<p>{{ post.publish }}</p>
+ -->				<span ng-show = 'postItems.length == 0'><hr/><h3>No Post Found</h3></span>
+ 					
+    				<div uib-accordion-group class="panel-default" heading="{{ post.title }}" >
+    					
+    					<span ng-if='post.image'>
+							<a ng-href='/blog/{{ post.slug }}'><img ng-src='{{ post.image }}' height='100px' > <br/></a>
+						 </span>
+    					 <p style='white-space:pre-wrap'>{{ post.content | limitTo:150 }}<span ng-if='post.content.length >150' >...</span></p>
+     					 <p>{{ post.user.username }}</p>
+     					 <p>{{ post.publish }}</p>
+     					 
+     					 <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" ></span><br><br>
+					    <!-- <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"></span> -->
+					    <a class="btn btn-primary" ng-href='/blog/{{ post.slug }}' >view</a>
+
+					
+					    <a href='#' confirm-click='Are you sure to delete it?' confirmed-click='deletePost(post)' ><span ng-show='post.user.username == currentUser'><button class='btn btn-default'>delete</button></span></a>
+
+					    <!-- <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+					    <button type="button" class="btn btn-sm btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+					    <button type="button" class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button> -->
+     					
+   					</div>
+  					
+	        	<!-- 	<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+	        		{{ post.title }}
+	        		</button>
+					<hr>
+					<div uib-collapse="isCollapsed">
+						<div class="well well-lg">	
+							<a  ng-href='/blog/{{ post.slug }}'/>View</a>        		
+							<p>{{ post.user.username }}</p>
+	        				<p>{{ post.publish }}</p>
+	        			</div>
+					</div> -->
+	        	<!-- <p>
+	        		<a class="btn btn-primary" ng-href='/blog/{{ post.slug }}' confirmed-click='goToItem(post)'>view</a>
+	        	</p>  -->
+
+	      	<!-- </div> -->
+	    <!-- </div> -->
+
+</div>  
+</uib-accordion>
+		<div class='col-sm-6 col-sm-offset-3'>
+	   		<span ng-if='postItems.length == 0'><hr/><h3>No Post Found</h3></span>
+	     </div>
+	    <!-- <span ng-if='items.length == 0'>Posts coming soon</span> -->
+</div>
+
+<div class='col-sm-6 col-sm-offset-3'>
+
+<dir-pagination-controls ng-hide='query.length>0' ></dir-pagination-controls>
+
+
+</div>
