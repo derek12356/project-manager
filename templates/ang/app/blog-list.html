@@ -21,7 +21,7 @@
 	<dir-pagination-controls ng-hide='query.length>0' ></dir-pagination-controls>
 </div>
 <uib-accordion close-others="oneAtATime">
-<div class='col-sm-6 col-sm-offset-3' dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 8' >
+<div class='col-sm-6 col-sm-offset-3' dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 5' >
 
 	<!-- <div class="thumbnail" > -->
 	     	 <!-- <a ng-href='/blog/{{ post.slug }}' ng-if='post.image'/><img class='img-responsive' ng-src="{{ post.image }}"  alt="..."></a> -->
