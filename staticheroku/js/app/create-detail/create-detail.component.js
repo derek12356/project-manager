@@ -49,9 +49,9 @@ angular.module('createDetail').
                 if (!data.content) {
                     $scope.loginError.content = ["This field may not be blank."]
                 }
-                if (!data.publish) {
-                    $scope.loginError.publish = ["This field may not be blank."]
-                }
+                // if (!data.publish) {
+                //     $scope.loginError.publish = ["This field may not be blank."]
+                // }
 
 				var reqConfig = {
 					method: "POST",
@@ -59,7 +59,7 @@ angular.module('createDetail').
 					data:{
 						title:data.title,
 						content:data.content,
-						publish:data.publish,
+						// publish:data.publish,
 						// image:data.image,
 						// username:data.username,
 						// token:data.token,
