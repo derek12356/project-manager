@@ -82,7 +82,7 @@ angular.module('createDetail').
 					// $cookies.put("image", data.image)
 					// $cookies.put("username",data.username)
 					$location.path("/")
-					window.location.reload()
+					// window.location.reload()
 					
 
 				})
