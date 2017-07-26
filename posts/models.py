@@ -16,9 +16,9 @@ class Post(models.Model):
     slug = models.SlugField(unique = True)
     content = models.TextField()
     draft = models.BooleanField(default=False)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
-    image= models.ImageField(upload_to =  upload_location,
-        null=True,blank=True, width_field ="width_field", height_field="height_field")
+    publish = models.DateField(auto_now=True, auto_now_add=False)
+    # image= models.ImageField(upload_to =  upload_location,
+    #     null=True,blank=True, width_field ="width_field", height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
