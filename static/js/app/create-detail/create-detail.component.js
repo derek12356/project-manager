@@ -59,7 +59,7 @@ angular.module('createDetail').
 					data:{
 						title:data.title,
 						content:data.content,
-						publish:data.publish,
+						// publish:data.publish,
 						// image:data.image,
 						// username:data.username,
 						// token:data.token,
