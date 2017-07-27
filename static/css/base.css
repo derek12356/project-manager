@@ -5,11 +5,7 @@ h2{
 h1{
 	color:  orange;
 }
-footer{
-    margin: 30px 20px;
-    text-align: center;
 
-}
 .clickable
 {
     cursor: pointer;
